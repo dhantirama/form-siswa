@@ -1,7 +1,7 @@
 <?php
 
 include '../koneksi.php';
-$siswa = mysqli_query($koneksi, "SELECT jurusan.nama_jurusan, gelombang.nama_gelombang, peserta_pelatihan.* FROM peserta_pelatihan LEFT JOIN gelombang ON gelombang.id = peserta_pelatihan.id_gelombang LEFT JOIN jurusan ON jurusan.id = peserta_pelatihan.id_jurusan ORDER BY id DESC");
+$siswa = mysqli_query($koneksi, "SELECT jurusan.jurusan, gelombang.gelombang, peserta_pelatihan.* FROM peserta_pelatihan LEFT JOIN gelombang ON gelombang.id = peserta_pelatihan.id_gelombang LEFT JOIN jurusan ON jurusan.id = peserta_pelatihan.id_jurusan ORDER BY id DESC");
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $update = mysqli_query($koneksi, "UPDATE peserta_pelatihan SET status = 1 WHERE id ='$id'");
