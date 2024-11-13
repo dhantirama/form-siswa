@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2024 at 09:23 AM
+-- Generation Time: Nov 13, 2024 at 08:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,12 +40,8 @@ CREATE TABLE `gelombang` (
 --
 
 INSERT INTO `gelombang` (`id`, `gelombang`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Gelombang 1', 0, '2024-11-11 04:54:03', '2024-11-11 06:27:59'),
-(2, 'Gelombang 2', 0, '2024-11-11 06:27:52', '2024-11-11 06:27:52'),
 (5, 'Gelombang 3', 0, '2024-11-11 06:33:32', '2024-11-11 06:33:32'),
-(13, 'Gelombang 5', 0, '2024-11-12 07:48:42', '2024-11-12 07:57:22'),
-(14, 'Gelombang 6', 1, '2024-11-12 08:00:58', '2024-11-12 08:12:33'),
-(15, 'Gelombang 7', 1, '2024-11-12 08:03:42', '2024-11-12 08:12:04');
+(20, 'gelombang 1', 1, '2024-11-13 03:37:34', '2024-11-13 03:37:34');
 
 -- --------------------------------------------------------
 
@@ -91,8 +87,8 @@ CREATE TABLE `level` (
 
 INSERT INTO `level` (`id`, `level`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', '2024-11-11 01:59:11', '2024-11-12 01:47:25'),
-(4, 'Master', '2024-11-12 02:05:47', '2024-11-12 02:05:47'),
-(5, 'PIC', '2024-11-12 02:05:51', '2024-11-12 02:05:51');
+(5, 'PIC', '2024-11-12 02:05:51', '2024-11-12 02:05:51'),
+(8, 'User', '2024-11-13 02:18:14', '2024-11-13 02:18:14');
 
 -- --------------------------------------------------------
 
@@ -104,6 +100,7 @@ CREATE TABLE `peserta_pelatihan` (
   `id` int(11) NOT NULL,
   `id_jurusan` int(11) NOT NULL,
   `id_gelombang` int(11) NOT NULL,
+  `foto` varchar(100) NOT NULL,
   `nama_lengkap` varchar(50) DEFAULT NULL,
   `nik` varchar(50) DEFAULT NULL,
   `kartu_keluarga` varchar(50) DEFAULT NULL,
@@ -125,14 +122,16 @@ CREATE TABLE `peserta_pelatihan` (
 -- Dumping data for table `peserta_pelatihan`
 --
 
-INSERT INTO `peserta_pelatihan` (`id`, `id_jurusan`, `id_gelombang`, `nama_lengkap`, `nik`, `kartu_keluarga`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `pendidikan`, `nama_sekolah`, `kejuruan`, `no_hp`, `email`, `aktivitas`, `status`, `created_at`, `updated_at`) VALUES
-(29, 3, 1, 'Dhanti', 'Doe', '', '', '', '', '', '', 'biologi', '', 'john.doe@example.com', '', 2, '2024-11-12 03:50:23', '2024-11-12 06:33:52'),
-(30, 4, 1, 'Dhanti', 'Doe', '', '', '', '', '', '', 'kala', '', 'john.doe@example.com', '', 0, '2024-11-12 03:58:11', '2024-11-12 06:31:28'),
-(31, 3, 1, 'Gelo', 'Doe', '', '', '', '', '', '', 'ayam', '', 'gelo@gmail.com', '', 0, '2024-11-12 04:02:22', '2024-11-12 06:31:32'),
-(32, 1, 1, 'Ayam', 'Doe', '', '', '', '', '', '', '', '', 'john.doe@example.com', '', 2, '2024-11-12 06:27:37', '2024-11-12 06:44:19'),
-(33, 3, 1, 'Kangkung', 'Doe', '', '', '', '', '', '', '', '', 'john.doe@example.com', '', 2, '2024-11-12 06:28:36', '2024-11-12 06:44:07'),
-(34, 5, 1, 'Pecel', 'Doe', '', '', '', '', '', '', '', '', 'john.doe@example.com', '', 2, '2024-11-12 06:30:00', '2024-11-12 06:43:37'),
-(35, 2, 1, 'Ikan', 'Doe', '', '', '', '', '', '', '', '', 'john.doe@example.com', '', 2, '2024-11-12 06:56:40', '2024-11-12 06:57:00');
+INSERT INTO `peserta_pelatihan` (`id`, `id_jurusan`, `id_gelombang`, `foto`, `nama_lengkap`, `nik`, `kartu_keluarga`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `pendidikan`, `nama_sekolah`, `kejuruan`, `no_hp`, `email`, `aktivitas`, `status`, `created_at`, `updated_at`) VALUES
+(29, 3, 1, '', 'Dhanti', 'Doe', '', '', '', '', '', '', 'biologi', '', 'john.doe@example.com', '', 0, '2024-11-12 03:50:23', '2024-11-13 03:29:09'),
+(30, 4, 1, '', 'Dhanti', 'Doe', '', '', '', '', '', '', 'kala', '', 'john.doe@example.com', '', 0, '2024-11-12 03:58:11', '2024-11-13 03:29:15'),
+(31, 3, 1, '', 'Gelo', 'Doe', '', '', '', '', '', '', 'ayam', '', 'gelo@gmail.com', '', 1, '2024-11-12 04:02:22', '2024-11-13 03:29:35'),
+(32, 1, 1, '', 'Ayam', 'Doe', '', '', '', '', '', '', '', '', 'john.doe@example.com', '', 2, '2024-11-12 06:27:37', '2024-11-12 06:44:19'),
+(33, 3, 1, '', 'Kangkung', 'Doe', '', '', '', '', '', '', '', '', 'john.doe@example.com', '', 3, '2024-11-12 06:28:36', '2024-11-13 02:06:48'),
+(34, 5, 1, '', 'Pecel', 'Doe', '', '', '', '', '', '', '', '', 'john.doe@example.com', '', 3, '2024-11-12 06:30:00', '2024-11-13 01:51:24'),
+(35, 2, 1, '', 'Ikan', 'Doe', '', '', '', '', '', '', '', '', 'john.doe@example.com', '', 3, '2024-11-12 06:56:40', '2024-11-13 01:50:42'),
+(36, 4, 15, '', 'Qaulan', '1212121', '21121212112', 'perempuan', 'jakarya', '31313131', 'sd', 'fsfsfs', 'biologi', '121212121', 'qaulan@gmail.com', 'kerja', 3, '2024-11-12 08:30:02', '2024-11-13 02:48:39'),
+(37, 4, 14, '', 'Dhanti', '731293791', '24124551', 'perempuan', 'Jakarta', '31313131', 'smp', '313131', 'ayam', '361783618', 'dhanti@gmail.com', 'kerja', 2, '2024-11-13 02:08:03', '2024-11-13 03:39:36');
 
 -- --------------------------------------------------------
 
@@ -156,7 +155,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `id_level`, `nama`, `email`, `password`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Admin', 'admin@gmail.com', 'admin@gmail.com', '2024-11-11 01:59:47', '2024-11-12 04:33:45'),
-(2, 4, 'User', 'user@gmail.com', 'user@gmail.com', '2024-11-12 02:06:21', '2024-11-12 04:33:35'),
+(2, 8, 'User', 'user@gmail.com', 'user@gmail.com', '2024-11-12 02:06:21', '2024-11-13 02:18:25'),
 (3, 5, 'PIC', 'pic@gmail.com', 'pic@gmail.com', '2024-11-12 02:07:29', '2024-11-12 02:07:29');
 
 --
@@ -201,31 +200,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `gelombang`
 --
 ALTER TABLE `gelombang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `peserta_pelatihan`
 --
 ALTER TABLE `peserta_pelatihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
